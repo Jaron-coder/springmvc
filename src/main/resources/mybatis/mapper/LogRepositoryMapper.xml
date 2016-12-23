@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cetc.repository.LogRepository">
+
+	<select id="getLogs" resultType="map">
+		select * from t_log
+	</select>
+	
+	<insert id="insertLog" parameterType="com.cetc.model.LogMessage" useGeneratedKeys="true" keyProperty="logId">
+    	insert into t_log (userid,content,operation,createdate) values 
+    		(#{userId},#{content},#{operation},now())
+	</insert>
+
+</mapper>
