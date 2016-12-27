@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>首页</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/form-elements.css">
+<link rel="stylesheet" href="css/style.css">
+<!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+ <![endif]-->
+
+<style type="text/css">
+body {
+	padding-top: 70px;
+	background-color: #589fea;
+	/* background-image:url('images/bg.jpg');
+	background-size: 100%; */
+}
+
+div.list-group a:hover {
+	cursor: pointer;
+	background-color: #CCCCCC;
+}
+
+.navbar-brand {
+	float: left;
+	height: 50px;
+	padding: 5px 5px;
+	font-size: 18px;
+	line-height: 40px
+}
+</style>
+</head>
+<body>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2 text">
+						<h1>测试演示平台</h1>
+						<div class="description">
+							<p>各种学习汇总，总结的例子
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3 form-box">
+						<div class="form-top">
+							<div class="form-top-left">
+								<h3>登录我们的网站</h3>
+								<p>输入您的用户名和密码登录:</p>
+							</div>
+							<div class="form-top-right">
+								<i class="fa fa-lock fa-1x"></i>
+							</div>
+						</div>
+						<div class="form-bottom">
+							<form role="form" action="index.html" method="post" class="form-horizontal">
+								<div class="form-group">
+									<label class="sr-only" for="form-username">用户名</label> 
+									<input type="text" name="userName" placeholder="输入用户名" class="form-control"/>
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="form-password">密码</label> 
+									<input type="password" name="userPassword" placeholder="输入密码" class="form-control">
+								</div>
+								 <div class="form-group">
+								    <label for="inputEmail3" class="col-sm-2 control-label" style="padding-left: 0px">验证码</label>
+								    <div class="col-sm-4">
+								      <input type="text" class="form-control" id="inputEmail3" placeholder="输入验证码">
+								    </div>
+								      <div class="col-sm-4">
+								      <img src="images/code.png" name="verifyCode" alt="验证码" height="50px">
+								    </div>
+								     <div class="col-sm-2" style="line-height: 50px">
+								     	<i class="fa fa-refresh fa-2x" style="height:50px;text-align: center;"></i>
+								    </div>
+								  </div>
+								<div class="form-group">
+									<button type="submit" class="btn">登录</button>
+								</div>
+								
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	<script src="jquery/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$('.nav-stacked > li').click(function(e) {
+			e.preventDefault();
+			$('.nav-stacked > li').removeClass('active');
+			$(this).addClass('active');
+		});
+	</script>
+
+</body>
+</html>
