@@ -1,7 +1,9 @@
 package com.cetc.model;
 
 
-public class BaseJson {
+public class RespDataVo {
+	
+	private String token;
 	/*
 	 * 数据
 	 */
@@ -15,6 +17,12 @@ public class BaseJson {
 	 */
 	private String code;
 	
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
 	public Object getData() {
 		return data;
 	}

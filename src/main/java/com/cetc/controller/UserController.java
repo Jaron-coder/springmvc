@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cetc.model.BaseJson;
-import com.cetc.model.JsonResp;
+import com.cetc.model.RespDataVo;
 import com.cetc.service.UserService;
 
 
@@ -22,11 +21,9 @@ public class UserController {
 	private UserService userService; 
 	
 	@RequestMapping(value = "/login", method ={RequestMethod.GET})
-	public JsonResp login(@RequestParam("userName")String usr,@RequestParam("userPwd")String pwd){
+	public RespDataVo login(@RequestParam("userName")String usr,@RequestParam("userPwd")String pwd){
 		logger.info("用户登陆校验接口");
-		JsonResp jsonResp = new JsonResp();
-		BaseJson root=userService.getCheckUser(usr,pwd);
-		jsonResp.setRoot(root);
-		return jsonResp;
+		RespDataVo root=userService.getCheckUser(usr,pwd);
+		return root;
 	}
 }

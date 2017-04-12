@@ -16,8 +16,7 @@ import org.springframework.core.NamedThreadLocal;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cetc.model.BaseJson;
-import com.cetc.model.JsonResp;
+import com.cetc.model.RespDataVo;
 import com.cetc.utils.Base64;
 import com.cetc.utils.DateUtil;
 import com.cetc.utils.JsonUtils;
@@ -51,8 +50,7 @@ public class TokenInterceptor implements HandlerInterceptor {
 					+ obj.toString());
 			return true;
 		} else {
-			JsonResp jsonResp = new JsonResp();
-			BaseJson root = new BaseJson();
+			RespDataVo root = new RespDataVo();
 			String token = null;
 			if (StringUtils.equals("get", request.getMethod().toLowerCase())) {
 				token = request.getParameter("token");
@@ -81,8 +79,7 @@ public class TokenInterceptor implements HandlerInterceptor {
 					root.setCode(code);
 					response.setCharacterEncoding("utf-8");
 					root.setMsg(ValueTool.getValue().get(code));
-					jsonResp.setRoot(root);
-					response.getWriter().write(JsonUtils.parseBeanToJson(jsonResp));
+					response.getWriter().write(JsonUtils.parseBeanToJson(root));
 					return false;
 				} else {
 					String tokenCode = tokenStr.split("_")[1];
@@ -92,8 +89,7 @@ public class TokenInterceptor implements HandlerInterceptor {
 							root.setCode(code);
 							response.setCharacterEncoding("utf-8");
 							root.setMsg(ValueTool.getValue().get(code));
-							jsonResp.setRoot(root);
-							response.getWriter().write(JsonUtils.parseBeanToJson(jsonResp));
+							response.getWriter().write(JsonUtils.parseBeanToJson(root));
 							return false;
 						} else {
 							request.setAttribute("userId", tokenStr.split("_")[0]);
@@ -105,8 +101,7 @@ public class TokenInterceptor implements HandlerInterceptor {
 						root.setCode(code);
 						response.setCharacterEncoding("utf-8");
 						root.setMsg(ValueTool.getValue().get(code));
-						jsonResp.setRoot(root);
-						response.getWriter().write(JsonUtils.parseBeanToJson(jsonResp));
+						response.getWriter().write(JsonUtils.parseBeanToJson(root));
 						return false;
 					}
 				}
@@ -116,18 +111,14 @@ public class TokenInterceptor implements HandlerInterceptor {
 			root.setCode(code);
 			response.setCharacterEncoding("utf-8");
 			root.setMsg(ValueTool.getValue().get(code));
-			jsonResp.setRoot(root);
-			response.getWriter().write(JsonUtils.parseBeanToJson(jsonResp));
+			response.getWriter().write(JsonUtils.parseBeanToJson(root));
 			return false;
 		}
-
 	}
 
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		Map<String, Object> map = modelAndView.getModel();
-		logger.info(request.getRequestURL() + " 返回数据: " + JsonUtils.objectToJson(map));
 	}
 
 	@Override

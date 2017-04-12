@@ -12,6 +12,14 @@
 	        
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
+	<mvc:interceptors>
+	    <mvc:interceptor>
+	        <mvc:mapping path="/*/*"/>
+	        <!-- 对特定的请求才进行拦截 -->
+	        <bean class="com.cetc.TokenInterceptor"/>
+	    </mvc:interceptor>
+	</mvc:interceptors>
+	
 	<!-- 只扫描有这两个注解的组件 -->
 	<context:component-scan base-package="com.cetc.controller">
 		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController"/>

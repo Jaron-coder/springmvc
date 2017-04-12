@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cetc.model.BaseJson;
+import com.cetc.model.RespDataVo;
 import com.cetc.model.resp.UserVo;
 import com.cetc.repository.UserRepository;
 import com.cetc.service.UserService;
@@ -25,17 +25,15 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository;
 	
 	@Override
-	public BaseJson getCheckUser(String usr, String pwd) {
-		BaseJson root=new BaseJson();
+	public RespDataVo getCheckUser(String usr, String pwd) {
+		RespDataVo root=new RespDataVo();
 		String code = "1000";
 		try {
 			UserVo user=userRepository.getUserByNameAndPwd(usr,pwd);
 			if(user!=null){//存在用户
 				String token=Base64.encode((user.getUserId()+"_"+DateUtil.getDateFormat(Calendar.getInstance())+"_A123456a").getBytes());
-				JSONObject obj=new JSONObject();
-				obj.put("token",token);
-				obj.put("userInfo",user);
-				root.setData(obj);
+				root.setToken(token);
+				root.setData(user);
 				root.setCode(code);
 				root.setMsg(ValueTool.getValue().get(code));
 			}else{

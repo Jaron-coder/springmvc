@@ -1,6 +1,6 @@
 package com.cetc.service;
 
-import com.cetc.model.BaseJson;
+import com.cetc.model.RespDataVo;
 
 public interface UserService {
 
@@ -10,6 +10,6 @@ public interface UserService {
 	 * @param pwd
 	 * @return
 	 */
-	BaseJson getCheckUser(String usr, String pwd);
+	RespDataVo getCheckUser(String usr, String pwd);
 
 }
