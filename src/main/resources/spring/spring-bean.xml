@@ -30,8 +30,6 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-<bean id="schedulerFactoryBean"
-		class="org.springframework.scheduling.quartz.SchedulerFactoryBean" />
-	
+	<bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" />
 	
 </beans>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cetc.repository.UserRepository">
+	<resultMap type="com.cetc.model.resp.UserVo" id="userInfo">
+		<result property="userName" column="user_name"  	javaType="string"/>
+		<result property="userPwd"  column="user_password"  javaType="string"/>
+		<result property="isDelete" column="is_delete"      javaType="int"/>
+	</resultMap>
+	
+	<select id="getUserByNameAndPwd" resultMap="userInfo">
+		select * from tt_user u where u.is_delete=0 and u.user_name=#{userName} and u.user_password=#{userPwd}
+	</select>
+	
+</mapper>

@@ -27,6 +27,18 @@
 			<version>2.4</version>
 			<classifier>jdk15</classifier><!--指定jdk版本 -->
 		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.1.26</version>
+		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
@@ -121,6 +133,12 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.12</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>org.quartz-scheduler</groupId>
+		    <artifactId>quartz</artifactId>
+		    <version>2.2.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
@@ -131,6 +149,12 @@
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-core-asl</artifactId>
 			<version>1.9.12</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.8.9</version>
 		</dependency>
 
 		<dependency>
@@ -147,7 +171,7 @@
 
 	</dependencies>
 
-	<repositories>
+	<!-- <repositories>
 		<repository>
 			<id>maven-central</id>
 			<name>maven-central</name>
@@ -159,7 +183,7 @@
 				<enabled>true</enabled>
 			</releases>
 		</repository>
-	</repositories>
+	</repositories> -->
 
 	<build>
 		<finalName>springmvc</finalName>
