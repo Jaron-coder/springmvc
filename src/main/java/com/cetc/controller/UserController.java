@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cetc.annotation.SystemControllerLog;
 import com.cetc.model.RespDataVo;
 import com.cetc.service.UserService;
 
@@ -20,6 +21,7 @@ public class UserController {
 	@Autowired
 	private UserService userService; 
 	
+	@SystemControllerLog(description="登录系统")
 	@RequestMapping(value = "/login", method ={RequestMethod.GET})
 	public RespDataVo login(@RequestParam("userName")String usr,@RequestParam("userPwd")String pwd){
 		logger.info("用户登陆校验接口");

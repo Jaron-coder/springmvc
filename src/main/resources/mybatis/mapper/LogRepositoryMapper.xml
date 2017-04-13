@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cetc.repository.LogRepository">
+	<resultMap type="com.cetc.model.resp.LogVo" id="logInfo">
+		<result property="logId" 		column="log_id"			javaType="int"/>
+		<result property="logType" 		column="log_type"      	javaType="int"/>
+		<result property="description" 	column="description"  	javaType="string"/>
+		<result property="requestIp"  	column="request_ip"  	javaType="string"/>
+		<result property="createBy" 	column="create_by"      javaType="string"/>
+		<result property="createDate"	column="create_date"    javaType="string"/>
+	</resultMap>
+	
+	<insert id="addLog" parameterType="com.cetc.persistence.SystemLog" useGeneratedKeys="true">
+		insert into tt_log(log_type,method,description,request_ip,params,exception_code,exception_detail,create_by,create_date)
+					values(#{logType},#{method},#{description},#{requestIp},#{params},#{exceptionCode},#{exceptionDetail},#{createBy},#{createDate});
+	</insert>
+	
+	<select id="getLogListByType" resultMap="logInfo">
+		select * from tt_log;
+	</select>
+	
+</mapper>
