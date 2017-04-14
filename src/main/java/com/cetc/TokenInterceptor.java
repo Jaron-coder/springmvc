@@ -41,6 +41,17 @@ public class TokenInterceptor implements HandlerInterceptor {
 		startTimeThreadLocal.set(beginTime);// 线程绑定变量（该数据只有当前请求的线程可见）
 		String reqJson = "";
 		String getReqParm = "";
+		
+		//增加跨域请求
+		if(request.getHeader("Origin")!=null&&
+				(request.getHeader("Origin").equals("http://localhost:8000")||
+			     request.getHeader("Origin").equals("http://10.111.10.42:8000")) 
+			){
+			logger.debug("需要跨域请求{}", request.getRequestURI());
+			response.setHeader("Access-Control-Allow-Origin",request.getHeader("Origin"));
+		};
+		
+		
 		if (request.getRequestURI().contains("user/login")) {
 			JSONObject obj = new JSONObject();
 			obj.put("userName", request.getParameter("userName"));

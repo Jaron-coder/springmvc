@@ -36,6 +36,8 @@
 		<property name="suffix"      value=".jsp" />
 	</bean> 
 	
+	<bean class="com.cetc.controller.base.CorsConfigurerAdapter"></bean>
+	
 	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
 	
 	<!-- 启动对@AspectJ注解的支持 -->
